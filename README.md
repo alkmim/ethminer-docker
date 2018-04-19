@@ -4,6 +4,8 @@ Allows you to build ethminer in a docker container.
 ### Use
 
 ```
+git clone https://github.com/alkmim/ethminer-docker
+cd ethminer-docker/cuda9
 docker build -t ethminer-builder .
 docker run -v $(pwd)/build:/ethminer/build ethminer-builder
 ```
