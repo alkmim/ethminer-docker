@@ -17,10 +17,7 @@ run ln -vs /bin/gcc-5 /bin/gcc
 run rm -fv /bin/g++
 run ln -vs /bin/g++-5 /bin/g++
 
-# This will keep the downloaded hunter dependencies if we want to build again. 
-run ln -vs /ethminer/build/.hunter /root/.hunter
-
-# Clone moste recent version of ethminer. 
+# Clone most recent version of ethminer.
 run git clone https://github.com/ethereum-mining/ethminer.git
 
-cmd cd /ethminer/build && cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF -DETHSTRATUM=ON && cmake --build .
+cmd cd ethminer && git submodule update --init --recursive && cd /ethminer/build && cmake .. -DETHASHCUDA=ON -DETHASHCL=OFF -DETHSTRATUM=ON && cmake --build .
